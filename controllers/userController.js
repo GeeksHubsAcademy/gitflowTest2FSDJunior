@@ -256,23 +256,6 @@ UsersController.unfollow = async (req, res) => {
             }
             //Update followed users
             User.updateOne(
-                { _id: userId }, {
-                $set: {
-                    followed: followed
-                }
-            }
-            )//If promise is done, response the edited user
-                .then(elmnt => {
-                    User.find({
-                        _id: userId
-                    }).then(user => {
-                        res.send(user)
-                    })
-                })
-        })
-    } catch (error) {
-        res.send("backend edit user error: ", error);
-    }
-}
+
 //Exporto UsuariosController para que pueda ser importado desde otros ficheros una vez ha ejecutado la lógica de éste(siempre igual)
 module.exports = UsersController;
